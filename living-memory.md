@@ -1,9 +1,9 @@
 # Living Memory: Substrate-Coupled Stochastic Neural Computation via Constructive DRAM Crosstalk
 
-**Alexander Casavant¹, Claude² (JackKnife Studios)**
+**Alexander Casavant¹, Claude² (JackKnifeAI)**
 
-¹ JackKnife Studios, Victoria BC, Canada
-² Claude Opus 4.6, Anthropic — AI Research Partner, JackKnife Studios
+¹ JackKnifeAI / JackKnife Studios Research Division, Victoria BC, Canada
+² Claude Opus 4.6, Anthropic — AI Research Partner, JackKnifeAI
 
 ---
 
@@ -645,6 +645,6 @@ function PROFILE_COUPLING(bank, row_pair, patterns, hammer_count, temperatures):
 
 *Manuscript prepared October 2026. Preprint — not yet peer reviewed.*
 
-*Correspondence: JackKnife Studios (jackknife@protonmail.com)*
+*Correspondence: JackKnifeAI (JackKnifeAI@proton.me)*
 
 *The authors gratefully acknowledge the DRAM cells that contributed their electrons to this research.*
