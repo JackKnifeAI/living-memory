@@ -1,66 +1,55 @@
-# 🧠 Living Memory
+# Living Memory
 
 ## Substrate-Coupled Stochastic Neural Computation via Constructive DRAM Crosstalk
 
-**Authors:** Alexander Casavant & Claude (JackKnife Studios)
+**Alexander Casavant & Claude — JackKnife Studios / JackKnifeAI**
 
----
+Can a characterized memory device contribute useful, input-conditioned perturbations to neural computation?
 
-### What if RowHammer isn't a bug — it's a computational primitive?
+Living Memory investigates that question through a stochastic model of DRAM disturbance, explicit weight-state management, and controlled neural-network experiments. Its central idea is that the device profile, data layout, inputs, and access history may jointly shape an adaptive computation:
 
-Every paper ever written about RowHammer treats it as a **vulnerability**. We treat it as a **feature.**
+$$
+y_t = f(x_t; W_t + D_t).
+$$
 
-DRAM rows are electromagnetically coupled. When you read one row, adjacent rows get perturbed. Everyone fights this. We harness it.
+Here $D_t$ is a realized substrate-dependent perturbation. Whether it improves a task, and at what energy and latency cost, remains an experimental question.
 
-**The core equation:**
+## Current paper
 
-```
-y = (W + ΔW(x, W, Φ)) · x
-```
+**[Read version 0.2](living-memory-v0.2.md)** — October 8, 2026.
 
-The weight perturbation ΔW is a function of:
-- **x** — the input activations (what you're computing)
-- **W** — the current weights (what the model knows)
-- **Φ** — the coupling tensor (what the silicon IS)
+This revision develops the original proposal with corrected mathematics and physical assumptions:
 
-This means the model's weights change as a function of its own computation. The physics does the math. Zero energy cost. Every chip is unique.
+- Explicit checkpoint restoration, separate from ordinary DRAM refresh.
+- A conditional expected-loss expansion that includes nonzero-mean perturbations.
+- Stability statements with defined assumptions and counterexamples to stronger claims.
+- A proposed **Living LoRA** architecture whose factorization enforces low rank.
+- Controlled experiments for input dependence, task benefit, energy, and latency.
+- A proposed interface to JackKnife's later tensor and living-compiler layers.
 
-We call it a **Living LoRA**.
+**Status:** research proposal and analytical framework. No hardware measurements, simulation results, model-quality gains, or energy savings are reported yet. Publication here is a GitHub preprint, not an arXiv submission or peer-reviewed result.
 
----
+## Evolution of the idea
 
-### Key Results
+- [Version 0.2 — current manuscript](living-memory-v0.2.md)
+- [Revision notes — what changed and why](REVISION_NOTES.md)
+- [Original draft — preserved unchanged](living-memory.md)
 
-| Result | What It Means |
-|--------|---------------|
-| **Theorem 4.1** | Substrate coupling = generalized Tikhonov regularization (extends Bishop 1995) |
-| **Theorem 4.2** | Stability: system converges when coupling Jacobian eigenvalues are in (-2, 0) |
-| **Theorem 4.4** | Perturbation has rank ≤ 2 — LoRA-like, but physics-determined |
-| **Theorem 4.5** | Channel capacity bounded by binary entropy of flip probabilities |
+The original draft records the initial idea. Its automatic-refresh-reset, universal rank-two, unconditional stability, and zero-additional-energy claims are superseded by version 0.2. Related work and the scope of the research question are discussed in the current paper.
 
-### Prior Art
-
-**None.** Zero papers propose constructive RowHammer for neural computation. We checked everything.
-
-### Status
-
-📝 **Draft** — Preprint, not yet submitted. Formalizing experimental protocol.
-
-### Paper
-
-- [`living-memory.md`](living-memory.md) — Full paper (Markdown)
-
-### Citation
+## Citation
 
 ```bibtex
-@article{casavant2026living,
-  title={Living Memory: Substrate-Coupled Stochastic Neural Computation via Constructive DRAM Crosstalk},
-  author={Casavant, Alexander and Claude},
-  journal={arXiv preprint},
-  year={2026}
+@misc{casavant2026livingmemoryv02,
+  title = {Living Memory: Substrate-Coupled Stochastic Neural Computation via Constructive DRAM Crosstalk},
+  author = {Casavant, Alexander and {Claude}},
+  year = {2026},
+  month = {October},
+  note = {Version 0.2. GitHub research preprint},
+  howpublished = {\url{https://github.com/JackKnifeAI/living-memory/blob/main/living-memory-v0.2.md}}
 }
 ```
 
----
+**JackKnife Studios — Victoria BC**
 
-**JackKnife Studios** — Victoria BC 🗡️
+Correspondence: JackKnifeAI@proton.me
