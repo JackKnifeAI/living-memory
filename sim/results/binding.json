@@ -1,0 +1,34 @@
+{
+ "plaintext": {
+  "key_ber": 0.0,
+  "acc": 0.9732997481108313
+ },
+ "ciphertext read directly": {
+  "key_ber": 0.5,
+  "acc": 0.11838790931989925
+ },
+ "home chip, 1 shot": {
+  "key_ber": 0.00234375,
+  "acc": 0.963727959697733
+ },
+ "home chip, 5 votes": {
+  "key_ber": 0.00011718750000000002,
+  "acc": 0.9732997481108313
+ },
+ "home chip, 20% fewer hammers": {
+  "key_ber": 0.014335937499999998,
+  "acc": 0.8644836272040303
+ },
+ "home chip, thresholds drifted 15%": {
+  "key_ber": 0.004179687499999999,
+  "acc": 0.9546599496221664
+ },
+ "different chip": {
+  "key_ber": 0.49945312499999994,
+  "acc": 0.13148614609571788
+ },
+ "no chip (all-zero response)": {
+  "key_ber": 0.5,
+  "acc": 0.11838790931989925
+ }
+}
